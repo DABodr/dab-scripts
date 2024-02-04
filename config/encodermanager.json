@@ -7,7 +7,7 @@
         "static_directory": "/home/odr/ODR-mmbTools/ODR-EncoderManager/static/",
         "host": "0.0.0.0",
         "supervisor_file": "/home/odr/config/supervisor/ODR-encoders.conf",
-        "port": 8003
+        "port": 8005
     },
     "auth": {
         "users": [
