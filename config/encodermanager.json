@@ -1,12 +1,12 @@
 {
     "global": {
         "daemon": false,
-        "max_encoder_instance": 3,
-        "logs_directory": "/home/pi/ODR-mmbTools/ODR-EncoderManager/logs/",
+        "max_encoder_instance": 30,
+        "logs_directory": "/home/odr/ODR-mmbTools/ODR-EncoderManager/logs/",
         "supervisor_xmlrpc": "http://odr:odr@127.0.0.1:8001/RPC2",
-        "static_directory": "/home/pi/ODR-mmbTools/ODR-EncoderManager/static/",
+        "static_directory": "/home/odr/ODR-mmbTools/ODR-EncoderManager/static/",
         "host": "0.0.0.0",
-        "supervisor_file": "/home/pi/config/supervisor/ODR-encoders.conf",
+        "supervisor_file": "/home/odr/config/supervisor/ODR-encoders.conf",
         "port": 8003
     },
     "auth": {
@@ -20,7 +20,7 @@
     "odr": [
         {
             "uniq_id": "defee58a-f768-4ca9-a0f7-88f08b2e8748",
-            "autostart": "false",
+            "autostart": "true",
             "path": {
                 "encoder_path": "/usr/local/bin/odr-audioenc",
                 "padenc_path": "/usr/local/bin/odr-padenc",
@@ -36,7 +36,7 @@
                 "alsa_device": "plughw:1,0",
                 "driftcomp": "true",
                 "silence_detect": "true",
-                "silence_duration": "60",
+                "silence_duration": "180",
                 "avt_input_uri": "udp://:32010",
                 "avt_control_uri": "udp://192.168.128.111:9325",
                 "avt_pad_port": "9405",
@@ -57,7 +57,7 @@
                     }
                 ],
                 "zmq_key": "",
-                "bitrate": "128",
+                "bitrate": "88",
                 "samplerate": "48000",
                 "channels": "2",
                 "dabp_sbr": "false",
@@ -71,29 +71,26 @@
             "padenc": {
                 "enable": "true",
                 "pad": "34",
-                "dls_file": "/home/pi/config/mot/P01/INFO.dls",
-                "slide_directory": "/home/pi/config/mot/P01/slide/",
+                "dls_file": "/home/odr/config/mot/P01/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P01/slide/",
                 "slide_sleeping": "0",
                 "slide_once": "false",
                 "raw_dls": "false",
                 "raw_slides": "false",
                 "uniform_label": "12",
-                "uniform_label_ins": "1200",
-                "slide_carousel_interval": "",
-                "slide_live_interval": "",
-                "slide_live_lifetime": ""
+                "uniform_label_ins": "1200"
             },
-            "name": "P01",
+            "name": "Radio Monaco",
             "description": "Radio Monaco",
             "supervisor_additional_options": {
-                "user": "pi",
-                "group": "pi",
+                "user": "odr",
+                "group": "odr",
                 "autorestart": "false"
             }
         },
         {
             "uniq_id": "7158c498-1ef1-4580-b385-23a3c06ba985",
-            "autostart": "false",
+            "autostart": "true",
             "path": {
                 "encoder_path": "/usr/local/bin/odr-audioenc",
                 "padenc_path": "/usr/local/bin/odr-padenc",
@@ -105,7 +102,7 @@
                 "stats_socket": "/var/tmp/P02.stats",
                 "stream_url": "http://media-ice.musicradio.com/CapitalMP3",
                 "stream_writeicytext": "true",
-                "stream_lib": "vlc",
+                "stream_lib": "gst",
                 "alsa_device": "plughw:1,0",
                 "driftcomp": "true",
                 "silence_detect": "true",
@@ -130,7 +127,7 @@
                     }
                 ],
                 "zmq_key": "",
-                "bitrate": "128",
+                "bitrate": "88",
                 "samplerate": "48000",
                 "channels": "2",
                 "dabp_sbr": "false",
@@ -144,8 +141,8 @@
             "padenc": {
                 "enable": "true",
                 "pad": "34",
-                "dls_file": "/home/pi/config/mot/P02/INFO.dls",
-                "slide_directory": "/home/pi/config/mot/P02/slide",
+                "dls_file": "/home/odr/config/mot/P02/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P02/slide",
                 "slide_sleeping": "0",
                 "slide_once": "false",
                 "raw_dls": "false",
@@ -153,13 +150,468 @@
                 "uniform_label": "12",
                 "uniform_label_ins": "1200"
             },
-            "name": "P02",
+            "name": "Capital FM",
             "description": "Capital FM London",
             "supervisor_additional_options": {
-                "user": "pi",
-                "group": "pi",
+                "user": "odr",
+                "group": "odr",
                 "autorestart": "false"
             }
+        },
+        {
+            "uniq_id": "f93a9393-bc99-48a5-afa9-c681c7a91066",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-f93a9393-bc99-48a5-afa9-c681c7a91066.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/f93a9393-bc99-48a5-afa9-c681c7a91066.stats",
+                "stream_url": "https://stream.srg-ssr.ch/m/rsp/mp3_128",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "60",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/f93a9393-bc99-48a5-afa9-c681c7a91066.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "Output",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9003",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "34",
+                "dls_file": "/home/odr/config/mot/P03/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P03/slide/",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "Swiss Pop",
+            "description": "Radio Swiss Pop"
+        },
+        {
+            "uniq_id": "c353716e-f276-4e9c-b5e8-782018edd78e",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-c353716e-f276-4e9c-b5e8-782018edd78e.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/c353716e-f276-4e9c-b5e8-782018edd78e.stats",
+                "stream_url": "https://stream.rcs.revma.com/1a6hdnzbebuvv",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "60",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/c353716e-f276-4e9c-b5e8-782018edd78e.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9004",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "48",
+                "dls_file": "/home/odr/config/mot/P04/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P04/slide/",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "NRJ+",
+            "description": "NRJ+"
+        },
+        {
+            "uniq_id": "9020a318-7bed-448f-9ac6-e0558a74feeb",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-9020a318-7bed-448f-9ac6-e0558a74feeb.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/9020a318-7bed-448f-9ac6-e0558a74feeb.stats",
+                "stream_url": "https://stream.radioparadise.com/world-etc-32",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "60",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/9020a318-7bed-448f-9ac6-e0558a74feeb.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9005",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "34",
+                "dls_file": "/home/odr/config/mot/P05/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P05/slide/",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "Radio Paradise",
+            "description": "Radio Paradise"
+        },
+        {
+            "uniq_id": "3b06ac10-5ecb-4f1a-9136-7d03907af4da",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-3b06ac10-5ecb-4f1a-9136-7d03907af4da.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/3b06ac10-5ecb-4f1a-9136-7d03907af4da.stats",
+                "stream_url": "https://22663.live.streamtheworld.com/KINK_SC",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "60",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/3b06ac10-5ecb-4f1a-9136-7d03907af4da.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9006",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "34",
+                "dls_file": "/home/odr/config/mot/P06/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P06/slide",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "KINK",
+            "description": "KINK"
+        },
+        {
+            "uniq_id": "f5634b8a-9aea-4a3f-8a7e-b7bfca12a004",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-f5634b8a-9aea-4a3f-8a7e-b7bfca12a004.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/f5634b8a-9aea-4a3f-8a7e-b7bfca12a004.stats",
+                "stream_url": "https://audio1.maxi80.com/;?1707061581287",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "180",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/f5634b8a-9aea-4a3f-8a7e-b7bfca12a004.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9007",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "34",
+                "dls_file": "/home/odr/config/mot/P07/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P07/slide/",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "Maxi 80",
+            "description": "Maxi 80"
+        },
+        {
+            "uniq_id": "2f258770-f550-4117-8f94-6acb157bc1db",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-2f258770-f550-4117-8f94-6acb157bc1db.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/2f258770-f550-4117-8f94-6acb157bc1db.stats",
+                "stream_url": "https://radiomeuh2.ice.infomaniak.ch/radiomeuh2-128.mp3",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "180",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/2f258770-f550-4117-8f94-6acb157bc1db.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9008",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "34",
+                "dls_file": "/home/odr/config/mot/P08/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P08/slide/",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "Radio Meuh",
+            "description": "Radio Meuh"
+        },
+        {
+            "uniq_id": "758a8c51-97f8-48f7-953e-dfa7cbe9ebcf",
+            "autostart": "true",
+            "path": {
+                "encoder_path": "/usr/local/bin/odr-audioenc",
+                "padenc_path": "/usr/local/bin/odr-padenc",
+                "sourcecompanion_path": "/usr/local/bin/odr-sourcecompanion",
+                "zmq_key_tmp_file": "/var/tmp/zmq-758a8c51-97f8-48f7-953e-dfa7cbe9ebcf.key"
+            },
+            "source": {
+                "type": "stream",
+                "stats_socket": "/var/tmp/758a8c51-97f8-48f7-953e-dfa7cbe9ebcf.stats",
+                "stream_url": "https://n07a-eu.rcs.revma.com/5wesqhfap98uv?rj-ttl=5&rj-tok=AAABjXTuLCQAcnBsxlO9uU79Pw",
+                "stream_writeicytext": "true",
+                "stream_lib": "gst",
+                "alsa_device": "plughw:1,0",
+                "driftcomp": "true",
+                "silence_detect": "true",
+                "silence_duration": "180",
+                "avt_input_uri": "udp://:32010",
+                "avt_control_uri": "udp://192.168.128.111:9325",
+                "avt_pad_port": "9405",
+                "avt_jitter_size": "80",
+                "avt_timeout": "4000",
+                "aes67_sdp_file": "/var/tmp/758a8c51-97f8-48f7-953e-dfa7cbe9ebcf.sdp",
+                "aes67_sdp": ""
+            },
+            "output": {
+                "type": "dabp",
+                "output": [
+                    {
+                        "name": "",
+                        "type": "editcp",
+                        "host": "127.0.0.1",
+                        "port": "9009",
+                        "enable": "true"
+                    }
+                ],
+                "zmq_key": "",
+                "bitrate": "88",
+                "samplerate": "48000",
+                "channels": "2",
+                "dabp_sbr": "true",
+                "dabp_ps": "false",
+                "dabp_afterburner": "true",
+                "dab_dabmode": "j",
+                "dab_dabpsy": "1",
+                "edi_identifier": "",
+                "edi_timestamps_delay": ""
+            },
+            "padenc": {
+                "enable": "true",
+                "pad": "34",
+                "dls_file": "/home/odr/config/mot/P09/dls.dls",
+                "slide_directory": "/home/odr/config/mot/P09/slide/",
+                "slide_sleeping": "0",
+                "slide_once": "false",
+                "raw_dls": "false",
+                "raw_slides": "false",
+                "uniform_label": "12",
+                "uniform_label_ins": "1200"
+            },
+            "name": "FG Antwerpen",
+            "description": "FG Antwerpen"
         }
     ]
 }
