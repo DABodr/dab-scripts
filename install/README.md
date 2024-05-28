@@ -36,10 +36,8 @@ If you want to quickly play with the tools before installing anything on your ho
 1. Clone this repository:
    ```
    # Clone the stable version of dab-scripts
-   git clone https://github.com/opendigitalradio/dab-scripts.git
+   git clone https://github.com/DABodr/dab-scripts.git
 
-   # Or clone the development version of dab-scripts
-   git clone --branch next https://github.com/opendigitalradio/dab-scripts.git
    ```
 1. Install the ODR-mmbTools suite and the sample configuration folder
    ```
