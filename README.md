@@ -101,5 +101,5 @@ If you want to change the name of the multiplex, then change the label and short
 ### Change and/or add new programs
 If your server is powerful enough, then you can add more services/sub-channels/components
 1. Start job **10-EncoderManager** from the Supervisor web access
-1. Point the web browser of the client to the **Encoder Manager web interface** on the host (http://server_address:8003). You can use the excellent [radio browser directory](https://www.radio-browser.info) to identify the url of the radio audio stream
+1. Point the web browser of the client to the **Encoder Manager web interface** on the host (http://server_address:8005). You can use the excellent [radio browser directory](https://www.radio-browser.info) to identify the url of the radio audio stream
 1. Modify file $HOME/config/odr-dabmux.info and adapt the services, subchannels and components in relation with the changes you made with the Encoder-Manager. You should use the values mentionned in the [official ETSI TS 101 756 document](https://www.etsi.org/deliver/etsi_ts/101700_101799/101756/02.02.01_60/ts_101756v020201p.pdf).
