@@ -44,8 +44,6 @@ If you want to quickly play with the tools before installing anything on your ho
    # Install the stable version of odr-mmbTools
    sudo bash dab-scripts/install/mmbtools-get --branch master install
 
-   # Or install the development version of odr-mmbTools
-   sudo bash dab-scripts/install/mmbtools-get --branch next install
    ```
 
 ### Notes
